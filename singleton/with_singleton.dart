@@ -1,12 +1,11 @@
 class RegisterEvents {
   final events = [];
-  static RegisterEvents? _instance;
+  static final RegisterEvents _instance = RegisterEvents._();
 
   RegisterEvents._();
 
-  static RegisterEvents get instance {
-    if (_instance == null) _instance = RegisterEvents._();
-    return _instance!;
+  factory RegisterEvents() {
+    return _instance;
   }
 
   void addEvent(String eventName) {
@@ -23,7 +22,7 @@ class RegisterEvents {
 
 class ViewA {
   void onClick() {
-    RegisterEvents.instance
+    RegisterEvents()
       ..addEvent('Click A')
       ..showEvents();
   }
@@ -31,7 +30,7 @@ class ViewA {
 
 class ViewB {
   void onClick() {
-    RegisterEvents.instance
+    RegisterEvents()
       ..addEvent('Click B')
       ..showEvents();
   }
@@ -39,7 +38,7 @@ class ViewB {
 
 class ViewC {
   void onClick() {
-    RegisterEvents.instance
+    RegisterEvents()
       ..addEvent('Click C')
       ..showEvents();
   }
